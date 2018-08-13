@@ -128,7 +128,7 @@ func Save(filePath string, reader io.ReadCloser) (err error) {
 
 	// dir.create
 	path := filepath.Dir(filePath)
-	err = os.MkdirAll(path, os.ModeDir)
+	err = os.MkdirAll(path, os.ModePerm)
 	if err != nil {
 		fmt.Errorf("fail to mkdir path[%v]: %v", path, err.Error())
 		return

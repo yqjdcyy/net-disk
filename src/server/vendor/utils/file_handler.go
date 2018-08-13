@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"strings"
 	"runtime"
+	"strings"
 
 	"bitbucket.org/ansenwork/ilog"
 )
@@ -56,14 +56,16 @@ func Generate(d, p, f string) string {
 	f = f[stIdx:]
 
 	// system.compatible
-	if runtime.GOOS == "windows"{
-		p= strings.Replace(p, "/", "\\", -1)
-	}else{
-		p= strings.Replace(p, "\\", "/", -1)
+	fs := "/"
+	ts := "\\"
+	if runtime.GOOS != "windows" {
+		fs = "\\"
+		ts = "/"
 	}
+	p = strings.Replace(p, fs, ts, -1)
 
 	// format
-	return fmt.Sprintf("%s/%s/%s", d, p, f)
+	return fmt.Sprintf("%s%s%s%s%s", d, ts, p, ts, f)
 }
 
 func isFileSeperator(s byte) bool {
@@ -136,7 +138,7 @@ func Save(filePath string, reader io.ReadCloser) (err error) {
 
 	// dir.create
 	path := filepath.Dir(filePath)
-	err = os.MkdirAll(path, os.ModeDir)
+	err = os.MkdirAll(path, os.ModePerm)
 	if err != nil {
 		fmt.Printf("fail to mkdir path[%v]: %v", path, err.Error())
 		return
