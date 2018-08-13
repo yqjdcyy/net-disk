@@ -1,0 +1,11 @@
+<blog4go minlevel="debug">
+    <filter levels="info" colored="true">
+        <rotatefile path="/data/service/logs/domain-files/info.log" type="size" rotateSize="500000" rotateLines="8000000"></rotatefile>
+    </filter>
+    <filter levels="debug,warn" colored="true">
+        <rotatefile path="/data/service/logs/domain-files/debug.log" type="size" rotateSize="500000" rotateLines="8000000"></rotatefile>
+    </filter>
+    <filter levels="error,critical">
+        <rotatefile path="/data/service/logs/domain-files/error.log" type="size" rotateSize="500000" rotateLines="8000000"></rotatefile>
+    </filter>
+</blog4go>

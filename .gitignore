@@ -1,12 +1,57 @@
-# Binaries for programs and plugins
-*.exe
+##### java
+*.class
+.classpath
+target/
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+hs_err_pid*
+BuildProcessTemplates/
+.springBeans
+
+#### mule
+.mule
+.studio
+
+
+#git ignore
+#.gitignore
+
+#eclipse
+.metadata/
+RemoteSystemsTempFiles/
+Servers/
+.settings
+*.buildpath
+*.project
+
+#visual studio 2013
+*.vssscc
+*.vspscc
+Miya.Spider/packages/
+bin/
+obj/
+*.suo
+
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+#tfs
+$tf
+
+#idea
+.idea/
+*.iml
+
+# golang
+*.a
 *.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, build with `go test -c`
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+src/av-server/av-server
+src/av-server/vendor/test/test
+src/av-server/vendor/test/test.exe
+src/av-server/av-server.exe
+src/av-server/main
