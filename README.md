@@ -36,13 +36,14 @@
     - jwt
 
 ## Job
-- ~~download~~
+- download
 - tidy
 - upload
 
 ## Bug
 - ~~windows.seperator 2 linux.seperator~~
     - ~~异常目录处理~~
+    - ~~mkdirAll permission denied~~
 - 输出转移到 logger
 
 # 参考
