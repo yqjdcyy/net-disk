@@ -17,8 +17,15 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	args := r.URL.Query()
 	var path string
 	var filename string
+	fmt.Println(r.Header.Get("Content-Type"))
 
 	// check
+	file, _, err := r.FormFile("file")
+	if nil != err {
+		fmt.Fprintf(w, "fail to get file")
+		return
+	}
+	// filename = handler.Filename
 	pathes, ok := args["path"]
 	if ok && len(pathes) > 0 {
 
@@ -48,7 +55,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	p := utils.Generate(config.Gateway.Dir, path, filename)
 	ilog.Debugf("generate.path(%s, %s, %s)= %s", config.Gateway.Dir, path, filename, p)
 	if !utils.IsExists(p) {
-		if err := utils.Save(p, r.Body); nil != err {
+		if err := utils.SaveMultipartFile(p, file); nil != err {
 			ilog.Errorf("fail to save file[%s]: %s", p, err.Error())
 		}
 	} else {

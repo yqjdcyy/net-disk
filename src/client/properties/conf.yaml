@@ -1,7 +1,9 @@
-url: http://106.15.73.253:7000/upload?path=%v&filename=%v
+# url: http://106.14.172.103:7000/upload?path=%v&filename=%v
+url: http://localhost:7000/upload?path=%v&filename=%v
 log_path: /data/logs/client.log
 path:
-   - E:\image\cache
+  #  - E:\image\cache
+   - D:\data\cdn\nfs\img
 duration: 2
 type:
    - jpg
@@ -10,4 +12,4 @@ type:
    - bmp
    - gif
    - webp
-delete: true
+delete: false

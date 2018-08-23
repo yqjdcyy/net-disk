@@ -1,4 +1,4 @@
-# Work
+# FOR
 - 模拟网盘进行本机数据定时备份
 
 # TODO
@@ -14,7 +14,8 @@
     - ~~shell~~
     - ~~job~~
 - Show
-    - graphQL
+    - ~~graphQL~~
+    - job | filepath
     - list
     - detail
 - Auth
@@ -44,7 +45,9 @@
 - ~~windows.seperator 2 linux.seperator~~
     - ~~异常目录处理~~
     - ~~mkdirAll permission denied~~
-- 输出转移到 logger
+- ~~输出转移到 logger~~
+    - ~~保持文件操作、网络请求的独立性，放弃 log 模块的侵入~~
+- ~~上传图片无法正常观看~~
 
 # 参考
 ## ImageMagick
@@ -53,5 +56,4 @@
 
 ## 其它
 - [golang中使用url encoding遇到的小坑](http://weakyon.com/2017/05/04/something-of-golang-url-encoding.html)
-- []()
 - []()

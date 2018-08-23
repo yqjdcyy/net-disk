@@ -19,6 +19,7 @@ func POST(p, u string) error {
 	// init
 	bodyBuf := &bytes.Buffer{}
 	bodyWriter := multipart.NewWriter(bodyBuf)
+	defer bodyWriter.Close()
 
 	// read
 	fileWriter, err := bodyWriter.CreateFormFile("file", p)
@@ -40,6 +41,9 @@ func POST(p, u string) error {
 
 	// post
 	contentType := bodyWriter.FormDataContentType()
+	// contentType= "image/png"
+	// fmt.Printf("\tContent-Type: %v\n", contentType)
+	// fmt.Printf("\tContent-Length: %v\n", strconv.Itoa(bodyBuf.Len()))
 	bodyWriter.Close()
 	resp, err := http.Post(u, contentType, bodyBuf)
 	if nil != err {

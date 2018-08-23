@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+	"mime/multipart"
 
 	"bitbucket.org/ansenwork/ilog"
 )
@@ -156,5 +157,29 @@ func Save(filePath string, reader io.ReadCloser) (err error) {
 	bufReader := bufio.NewReader(reader)
 	_, err = bufReader.WriteTo(f)
 	ilog.Infof("save file[%s]", filePath)
+	return
+}
+
+// SaveMultipartFile 将文件保存至指定目录文件
+func SaveMultipartFile(filePath string, file multipart.File) (err error) {
+
+	// dir.create
+	path := filepath.Dir(filePath)
+	err = os.MkdirAll(path, os.ModePerm)
+	if err != nil {
+		fmt.Printf("fail to mkdir path[%v]: %v", path, err.Error())
+		return
+	}
+
+	// file.create
+	f, err := os.Create(filePath)
+	if nil != err {
+		fmt.Printf("fail to create file[%v]\n", filePath)
+		return
+	}
+	defer f.Close()
+
+	// file.fill
+	io.Copy(f, file)
 	return
 }

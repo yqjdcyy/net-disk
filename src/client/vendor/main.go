@@ -52,7 +52,6 @@ func job() {
 
 		// filter
 		for _, p := range config.ClientConf.Path {
-			// fmt.Println(p)
 
 			_ = filepath.Walk(p, func(q string, file os.FileInfo, err error) error {
 
@@ -60,7 +59,6 @@ func job() {
 					return err
 				}
 
-				// fmt.Printf("\t%s\n", q)
 				if check(p, q) {
 					files = append(files, q)
 					args = append(args, q[len(p):])
