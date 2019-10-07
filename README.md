@@ -46,6 +46,18 @@
 - ~~上传图片无法正常观看~~
 - 支持缩略图展现
 
+# Command
+
+## CMD
+
+- `set gopath`
+- `set gopath=%gopath%;"..."`
+
+## PowerShell
+
+- `$env:gopath`
+- `$env:gopath="..."`
+
 # 参考
 
 ## ImageMagick
