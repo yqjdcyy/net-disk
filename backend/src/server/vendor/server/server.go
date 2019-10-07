@@ -12,6 +12,7 @@ func Start() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/upload", UploadHandler).Methods("POST")
+	r.HandleFunc("/file", FileHandler).Methods("GET", "DELETE")
 
 	http.ListenAndServe(fmt.Sprintf(":%d", config.Gateway.Port), r)
 }

@@ -12,6 +12,9 @@ type GatewayConfig struct {
 
 	// Dir 基础目录地址
 	Dir string
+
+	// Suffix 缩略图后缀
+	Suffix string
 }
 
 func (g *GatewayConfig) init(c *ConfigFile) {
@@ -20,4 +23,5 @@ func (g *GatewayConfig) init(c *ConfigFile) {
 	g.Port = c.GetIntDefault("setting", "port", 7000)
 	
 	g.Dir = c.GetStringDefault("resource", "dir", "/data/cdn/dev/img")
+	g.Suffix = c.GetStringDefault("resource", "suffix", "")
 }
