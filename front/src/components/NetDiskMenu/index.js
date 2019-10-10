@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 const { SubMenu } = Menu;
 
-class NetDiskMenu extends React.Component {
+export class NetDiskMenu extends React.Component {
   state = {
     current: 'files',
   };
@@ -16,12 +16,7 @@ class NetDiskMenu extends React.Component {
 
   render() {
     return (
-      <Menu 
-        onClick={this.handleClick} 
-        selectedKeys={[this.state.current]} 
-        theme="dark"
-        mode="horizontal">
-          
+      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
         <SubMenu key="files"
         title={
             <span>
@@ -32,7 +27,7 @@ class NetDiskMenu extends React.Component {
             <Menu.ItemGroup title="CDN">
                 <Menu.Item key="cdn:img">img</Menu.Item>
             </Menu.ItemGroup>
-            <Menu.ItemGroup title="TMP">
+            <Menu.ItemGroup title="Tmp">
                 <Menu.Item key="tmp:img">img</Menu.Item>
             </Menu.ItemGroup>
         </SubMenu>
@@ -44,5 +39,3 @@ class NetDiskMenu extends React.Component {
     );
   }
 }
-
-export default NetDiskMenu;
