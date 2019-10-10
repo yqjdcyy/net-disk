@@ -3,22 +3,16 @@ import { Menu, Icon } from 'antd';
 const { SubMenu } = Menu;
 
 class NetDiskMenu extends React.Component {
-  state = {
-    current: 'files',
-  };
 
   handleClick = e => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
+    console.log(e.key)
+    console.log(e.url)
   };
 
   render() {
     return (
       <Menu 
         onClick={this.handleClick} 
-        selectedKeys={[this.state.current]} 
         theme="dark"
         mode="horizontal">
           
@@ -29,11 +23,11 @@ class NetDiskMenu extends React.Component {
                 Files
             </span>
         }>
+          <Menu.ItemGroup title="TMP">
+              <Menu.Item key="tmp:img" url="/file?path=/data/tmp/img">img</Menu.Item>
+          </Menu.ItemGroup>
             <Menu.ItemGroup title="CDN">
-                <Menu.Item key="cdn:img">img</Menu.Item>
-            </Menu.ItemGroup>
-            <Menu.ItemGroup title="TMP">
-                <Menu.Item key="tmp:img">img</Menu.Item>
+                <Menu.Item key="cdn:img" url="/file?path=/data/cdn/img">img</Menu.Item>
             </Menu.ItemGroup>
         </SubMenu>
         <Menu.Item key="setting">
